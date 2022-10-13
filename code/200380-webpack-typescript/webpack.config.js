@@ -3,12 +3,11 @@ const path = require('path')
 let production = process.env.NODE_ENV === "production";
 
 let config = {
-    entry: {
-      index: "./src/index",
-      home: "./src/home",
-    },
+    entry: [
+      "./src/index", "./src/home",
+    ],
     output: {
-        filename: '[name].js',
+        filename: 'main.js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {

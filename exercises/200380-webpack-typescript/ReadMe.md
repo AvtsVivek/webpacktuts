@@ -20,17 +20,16 @@
 - Note resolve. Because of that, when webpack encounters an entry point without extention such as the following, it will look for .ts or .js
 
 ```js
-entry: {
-  index: "./src/index",
-  home: "./src/home",
-},
+entry: [
+  "./src/index", "./src/home",
+],
 ```
 
 - Also note the output
 
 ```js
 output: {
-    filename: '[name].js',
+    filename: 'main.js',
     path: path.resolve(__dirname, 'dist')
 },
 ```
