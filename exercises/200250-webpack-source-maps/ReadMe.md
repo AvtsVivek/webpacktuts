@@ -1,0 +1,13 @@
+- This introduces source maps
+
+- Reference [web pack devtools](https://webpack.js.org/configuration/devtool/) 
+
+```js
+    devtool: "inline-source-map",
+```  
+
+- Now in the output file main.js file, yoiu can see the following.
+
+```
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5qcyIsIm1hcHBpbmdzIjoiOzs7OztBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8yMDAyMDAtc2ltcGxlLWJ1aWxkLy4vc3JjL2luZGV4LmpzIl0sInNvdXJjZXNDb250ZW50IjpbImNvbnN0IGNhcnQgPSBbXTtcclxuXHJcbmZ1bmN0aW9uIGxvZyhtZXNzYWdlKSB7XHJcbiAgY29uc29sZS5sb2cobWVzc2FnZSk7XHJcbn1cclxuXHJcbmZ1bmN0aW9uIGFkZFRvQ2FydChpdGVtKSB7XHJcbiAgY2FydC5wdXNoKGl0ZW0pO1xyXG4gIGxvZyhcImFkZGVkIG9uZSBpdGVtOiBcIiArIGl0ZW0pO1xyXG59XHJcblxyXG5mdW5jdGlvbiByZW1vdmVGcm9tQ2FydChpZHgpIHtcclxuICBjYXJ0LnNwbGljZShpZHgsIDEpO1xyXG4gIGxvZyhcInJlbW92ZWQ6IFwiLCBpZHgpO1xyXG59XHJcblxyXG5hZGRUb0NhcnQoXCJXYXRlcnByb29mIEJvb3RzXCIpO1xyXG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0
+```
