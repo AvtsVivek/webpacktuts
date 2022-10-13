@@ -16,6 +16,11 @@ npm install webpack webpack-cli webpack-dev-server --save-dev
 # Or the following, both are exactly same.
 npm i webpack webpack-cli webpack-dev-server -D
 
+# Add Babel packages as well
+npm install babel-loader @babel/core @babel/preset-env --save-dev
+# Or the following, both are exactly same.
+npm i babel-loader @babel/core @babel/preset-env -D
+
 
 npm run build
 
