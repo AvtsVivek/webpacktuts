@@ -2,9 +2,9 @@ pwd
 
 cd ../..
 
-cd ./exercises/200210-simple-build-webpack-watch
+cd ./exercises/200230-simple-build-webpack-config
 
-cd ../../code/200210-simple-build-webpack-watch
+cd ../../code/200230-simple-build-webpack-config
 
 pwd
 
@@ -18,7 +18,13 @@ npm install webpack webpack-cli webpack-dev-server --save-dev
 # Or the following, both are exactly same.
 npm i webpack webpack-cli webpack-dev-server -D
 
+# Create a new webpack.config.js. You cna use touch command as well.
+New-Item webpack.config.js
+
+# Now add some code. See the ReadMe.md file.
+
 # The following two will invoke webpack and webpack --watch commands.
 npm run wpbuild
 
 npm run wpwatch
+

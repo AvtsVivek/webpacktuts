@@ -6,6 +6,8 @@ cd ./exercises/200200-simple-build
 
 cd ../../code/200200-simple-build
 
+pwd
+
 # Run the following command, but before that ensure to delete the node_modules folder.
 
 Remove-Item -Recurse -Force node_modules
