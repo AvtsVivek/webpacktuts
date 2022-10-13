@@ -6,6 +6,10 @@ cd ./exercises/200200-simple-build
 
 cd ../../code/200200-simple-build
 
+# Run the following command, but before that ensure to delete the node_modules folder.
+
+Remove-Item -Recurse -Force node_modules
+
 npm init -y
 
 npm install webpack webpack-cli webpack-dev-server --save-dev
