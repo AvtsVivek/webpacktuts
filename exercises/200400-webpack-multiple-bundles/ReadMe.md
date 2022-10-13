@@ -19,3 +19,10 @@ output: {
 ```
 
 - Once you build, you should see two file in the dist folder.
+
+- Also note, in the index.html file, we should not refere to main.js file. Instead, we should refer to home.js and index.js as follows.
+```
+    <script src="/home.js"></script>
+    <script src="/index.js"></script>
+```
+
