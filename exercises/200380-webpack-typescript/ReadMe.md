@@ -1,4 +1,4 @@
-- Introduces loader. Specifically babel transpilers.
+- Introduces typescript loader
 
 - Note the major changes in the config file.
 

@@ -2,9 +2,9 @@ pwd
 
 cd ../..
 
-cd ./exercises/200380-webpack-typescript
+cd ./exercises/200400-webpack-multiple-bundles
 
-cd ../../code/200380-webpack-typescript
+cd ../../code/200400-webpack-multiple-bundles
 
 pwd
 

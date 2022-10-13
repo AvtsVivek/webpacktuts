@@ -1,23 +1,6 @@
-- Introduces loader. Specifically babel transpilers.
+- Introduces multiple bundles.
 
-- Note the major changes in the config file.
-
-```js
-    module: {
-      rules: [
-        {
-          test: /\.ts$/,
-          exclude: /node_modules/,
-          use: "ts-loader",
-        },
-      ],
-    },
-    resolve: {
-      extensions: [".ts", ".js"],
-    }
-```
-
-- Note resolve. Because of that, when webpack encounters an entry point without extention such as the following, it will look for .ts or .js
+- Note the major changes in the config file. The entry is now an object as againest an array earlier.
 
 ```js
 entry: {
@@ -35,6 +18,4 @@ output: {
 },
 ```
 
-- Also note in the src folder, we have now home.ts, index.ts and util.ts file now.
-
-- We also need to include the tsconfig.json file. Take a note of that. 
+- Once you build, you should see two file in the dist folder.
