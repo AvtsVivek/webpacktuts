@@ -6,7 +6,24 @@ cd ./exercises/200200-simple-build
 
 cd ../../code/200200-simple-build
 
-npm install webpack webpack-cli --save-dev
-# Or
-npm i webpack webpack-cli -D
+npm init -y
 
+npm install webpack webpack-cli webpack-dev-server --save-dev
+# Or the following, both are exactly same.
+npm i webpack webpack-cli webpack-dev-server -D
+
+webpack 
+# or
+npx webpack
+
+# The following are some of the common web pack commands.
+
+npx webpack version
+
+npx webpack configtest
+
+npx webpack init
+
+npx webpack serve
+
+npx webpack --watch
