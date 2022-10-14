@@ -1,4 +1,6 @@
-const path = require('path')
+const path = require('path');
+
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 let production = process.env.NODE_ENV === "production";
 
@@ -23,6 +25,10 @@ let config = {
     resolve: {
       extensions: [".ts", ".js"],
     },
+    
+    plugins: [new HtmlWebpackPlugin({ template: "./index.html", minify: false })],
+    // plugins: [new HtmlWebpackPlugin({minify: false})],
+    
     devtool: "inline-source-map",
     mode: 'development',
     devServer: {

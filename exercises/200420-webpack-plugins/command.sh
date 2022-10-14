@@ -31,7 +31,7 @@ npm install html-webpack-plugin --save-dev
 # Or the following, both are exactly same.
 npm i html-webpack-plugin -D
 
-npx webuild
+npm run wpbuild
 
 npm run build
 
