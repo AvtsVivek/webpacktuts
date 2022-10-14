@@ -2,9 +2,9 @@ pwd
 
 cd ../..
 
-cd ./exercises/200450-webpack-clean-dir
+cd ./exercises/200450-webpack-clean-dir-auto-reload
 
-cd ../../code/200450-webpack-clean-dir
+cd ../../code/200450-webpack-clean-dir-auto-reload
 
 pwd
 
