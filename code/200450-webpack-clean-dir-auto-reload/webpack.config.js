@@ -33,6 +33,8 @@ let config = {
     devtool: "inline-source-map",
     mode: 'development',
     devServer: {
+      liveReload: true, // This is default, so setting this is not necessary.
+      // "src/**/*" represents everything in the src dir.
       watchFiles: ["src/**/*", "index.html"],
       static: "./dist",
     },
