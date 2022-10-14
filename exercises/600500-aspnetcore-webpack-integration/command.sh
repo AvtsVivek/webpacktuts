@@ -36,3 +36,15 @@ dotnet run --project ./AspNetCoreWebPackIntegration.csproj
 
 ############################################################
 
+npm init -y
+
+Remove-Item -Recurse -Force node_modules
+
+npm install webpack webpack-cli --save-dev
+
+npm install jquery jquery-validation jquery-validation-unobtrusive bootstrap --save-dev
+
+npm run wpbuild
+
+dotnet run --project ./AspNetCoreWebPackIntegration.csproj
+
