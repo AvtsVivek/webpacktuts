@@ -9,7 +9,7 @@ entry: {
 },
 ```
 
-- Also note the output
+- Also note the output. See **[name].js**
 
 ```js
 output: {
@@ -22,7 +22,7 @@ output: {
 
 - Also note, in the index.html file, we should not refere to main.js file. Instead, we should refer to home.js and index.js as follows.
 ```
-    <script src="/home.js"></script>
-    <script src="/index.js"></script>
+<script src="/home.js"></script>
+<script src="/index.js"></script>
 ```
 
