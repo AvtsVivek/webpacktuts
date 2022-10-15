@@ -15,18 +15,13 @@ let config = {
      filename: 'main.build.js'
   },
     module: {
-      // rules: [
-      //   {
-      //     test: /\.ts$/,
-      //     exclude: /node_modules/,
-      //     use: "ts-loader",
-      //   },
-      //   {
-      //     test: /\.css$/,
-      //     exclude: /node_modules/,
-      //     use: ["style-loader", "css-loader"],
-      //   },
-      // ],
+      rules: [
+        {
+          test: /\.css$/,
+          exclude: /node_modules/,
+          use: ["style-loader", "css-loader"],
+        },
+      ],
     },
     resolve: {
       // This block is not needed as web pack by default resolves .js files.

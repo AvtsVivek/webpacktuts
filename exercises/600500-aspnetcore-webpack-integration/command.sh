@@ -44,7 +44,12 @@ npm install webpack webpack-cli --save-dev
 
 npm install jquery jquery-validation jquery-validation-unobtrusive bootstrap --save-dev
 
+npm install css-loader style-loader --save-dev
+
 npm run wpbuild
 
 dotnet run --project ./AspNetCoreWebPackIntegration.csproj
+
+# Css and style loaders
+
 

@@ -5,12 +5,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 let production = process.env.NODE_ENV === "production";
 
 let config = {
-    entry: {
-      index: "./src/index",
-      home: "./src/home",
-    },
+    entry: ["./src/index", "./src/home"],
     output: {
-        filename: '[name].js',
+        filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
         clean: true
     },
@@ -24,6 +21,9 @@ let config = {
         {
           test: /\.css$/,
           exclude: /node_modules/,
+          // The array below is order dependent. We want the loaders to process in a specific order. We want the css loader to process first.
+          // Then the style loader. Note here the order is reverse.
+          // https://webpack.js.org/concepts/loaders/#loader-features
           use: ["style-loader", "css-loader"],
         },
       ],
