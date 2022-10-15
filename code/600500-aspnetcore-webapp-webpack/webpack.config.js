@@ -12,7 +12,6 @@ let config = {
      path: path.join(__dirname, '/wwwroot/dist/'),
      //path: path.resolve(__dirname, '..', 'wwwroot', 'dist'),
      filename: 'main.build.js'
-
   },
     module: {
       rules: [
@@ -23,7 +22,7 @@ let config = {
       ],
     },
     resolve: {
-      extensions: [".js"],
+      extensions: ['.js'],
     },
     mode: 'development',
 }

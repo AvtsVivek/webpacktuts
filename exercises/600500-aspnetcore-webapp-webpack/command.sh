@@ -55,7 +55,7 @@ New-Item -Path ".\Scripts\other.js"
 
 New-Item -Path ".\Scripts\site.js"
 
-New-Item -Path ".\Scripts\somesite.css"
+New-Item -Path ".\Scripts\somecss.css"
 
 $AppFileContent = @"
 
@@ -70,7 +70,7 @@ var other = require('./other');
 
 global.jQuery = global.$ = require('jquery');
 
-$('body').append('<p>Hello World! If you are seeing this, then jquery is loaded....</p>');
+jQuery('body').append('<p>Hello World! If you are seeing this, then jquery is loaded....</p>');
 
 alert('Here we go');
 
