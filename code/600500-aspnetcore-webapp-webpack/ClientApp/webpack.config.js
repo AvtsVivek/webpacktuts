@@ -6,11 +6,10 @@ var $ = require('jquery');
 let production = process.env.NODE_ENV === 'production';
 
 let config = {
-  
   entry: {
-    main: "./src/main",
-    loadjquery: "./src/loadjquery",
-    site: "./src/site"
+    main: './src/main',
+    loadjquery: './src/loadjquery',
+    site: './src/site'
   },
   output: {
     publicPath: '/dist/',  
@@ -18,11 +17,6 @@ let config = {
     filename: '[name].build.js',
   },
 
-  // output: {
-  //    publicPath: '/dist/',
-  //    path: path.join(__dirname, './../wwwroot/dist/'),
-  //    filename: 'main.build.js'
-  // },
     module: {
       rules: [
         {

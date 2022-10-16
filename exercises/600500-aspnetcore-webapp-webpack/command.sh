@@ -47,7 +47,7 @@ dotnet new gitignore
 
 New-Item -Path '.\ClientApp\src' -ItemType Directory
 
-New-Item -Path ".\ClientApp\src\app.js"
+New-Item -Path ".\ClientApp\src\loadjquery.js"
 
 New-Item -Path ".\ClientApp\src\main.js"
 
@@ -57,30 +57,30 @@ New-Item -Path ".\ClientApp\src\site.js"
 
 New-Item -Path ".\ClientApp\src\sitecss.css"
 
-$AppFileContent = @"
+$LoadJqueryContent = @"
 
 // import 'bootstrap';
 // import './scss/app.scss';
 // import { $, jQuery } from 'jquery';
 
+global.jQuery = global.$ = require('jquery');
+
 "@
 
 $MainFileContent = @"
-var other = require('./other');
 
-global.jQuery = global.$ = require('jquery');
+var other = require('./other');
 
 jQuery('#jqueryTestDiv').append('<p>Hello World! If you are seeing this, then jquery is loaded....</p>');
 
-alert('Here we go');
-
 other();
+
 "@
 
 $OtherFileContent = @"
 
 function func() {
-     //alert('loaded!!! Just for testing');
+     alert('loaded!!! Just for testing');
 }
 
 module.exports = func;
@@ -107,7 +107,7 @@ console.log('The \'site\' bundle has been loaded!');
 
 "@
 
-Add-Content -Path ".\ClientApp\src\app.js" -Value $AppFileContent
+Add-Content -Path ".\ClientApp\src\loadjquery.js" -Value $LoadJqueryContent
 
 Add-Content -Path ".\ClientApp\src\main.js" -Value $MainFileContent
 
@@ -138,8 +138,6 @@ Remove-Item -Recurse -Force node_modules
 
 npm install jquery jquery-validation jquery-validation-unobtrusive bootstrap @popperjs/core --save
 
-npm install expose-loader --save
-
 npm install webpack webpack-cli --save-dev
 
 npm install css-loader style-loader --save-dev
@@ -164,12 +162,17 @@ var $ = require('jquery');
 let production = process.env.NODE_ENV === 'production';
 
 let config = {
-  entry: ['./src/main', './src/app',  './src/site', './node_modules/jquery', './node_modules/jquery-validation', './node_modules/jquery-validation-unobtrusive', './node_modules/bootstrap'],
-  output: {
-     publicPath: '/dist/',
-     path: path.join(__dirname, './../wwwroot/dist/'),
-     filename: 'main.build.js'
+  entry: {
+    main: './src/main',
+    loadjquery: './src/loadjquery',
+    site: './src/site'
   },
+  output: {
+    publicPath: '/dist/',  
+    path: path.join(__dirname, './../wwwroot/dist/'),
+    filename: '[name].build.js',
+  },
+
     module: {
       rules: [
         {
@@ -208,12 +211,11 @@ Remove-Item ".\Pages\Shared\_Layout.cshtml.css"
 
 Remove-Item -Recurse -Force ".\wwwroot\lib"
 
-# Update the _Layout.cshtml file with the following.
+# Update the _Layout.cshtml file with the following in the head.
 
-# The following, because of defer, is giving the $ is not defined error
-<script src="~/dist/main.build.js" defer></script>
-# So use without it.
-<script src="~/dist/main.build.js" ></script> 
+    <script src="~/dist/loadjquery.build.js" ></script>
+    <script src="~/dist/main.build.js" defer ></script>
+    <script src="~/dist/site.build.js"  ></script>
 
 # Add Jquery test page and also its link in the layout page. 
 
