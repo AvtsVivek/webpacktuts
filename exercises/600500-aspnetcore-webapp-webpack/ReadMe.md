@@ -63,3 +63,27 @@ global.jQuery = global.$ = require('jquery');
 } 
 ```
 
+- Some notes about loading of dom, js files and css
+- The web pack output of this some js files should be defered. Meaning, when a page is loading, this file should be loaded last.
+- The sequence as far as I understand is as follows.
+- First css(I think so because the style sheet is placed in the head section and at the top, above the body)
+- Second, the dom. 
+- Then the script section of a page or view in asp.net core. This script section may need jquery. 
+- So the file which contains jquey should not be defered. In our case the file is loadjquery.js and this contains just the following
+- **global.jQuery = global.$ = require('jquery');**
+- And finally the file which contains code to maipulate dom, and that which needs jquey as well, should be defered.
+- The reason for this is, the scripts section of a page or view which looks like the following should be loaded before this file.
+```js
+    @section Scripts
+    {
+        <script>
+        ...
+        </script>
+    }
+``` 
+- So the sequence should be as follows.
+  1. loadjquery.js, 
+  2. site.js. This has css. 
+  3. The scripts section(shown above).Note that the script section may need jquery. So it should be loaded first.
+  4. Then main.js. This is because this script file contains reference to jqueryTestDiv as well as jquery. So the dom should be loaded
+

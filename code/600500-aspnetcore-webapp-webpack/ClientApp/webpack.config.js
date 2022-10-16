@@ -6,12 +6,23 @@ var $ = require('jquery');
 let production = process.env.NODE_ENV === 'production';
 
 let config = {
-  entry: ['./src/main', './src/app',  './src/site', './node_modules/jquery', './node_modules/jquery-validation', './node_modules/jquery-validation-unobtrusive', './node_modules/bootstrap'],
-  output: {
-     publicPath: '/dist/',
-     path: path.join(__dirname, './../wwwroot/dist/'),
-     filename: 'main.build.js'
+  
+  entry: {
+    main: "./src/main",
+    loadjquery: "./src/loadjquery",
+    site: "./src/site"
   },
+  output: {
+    publicPath: '/dist/',  
+    path: path.join(__dirname, './../wwwroot/dist/'),
+    filename: '[name].build.js',
+  },
+
+  // output: {
+  //    publicPath: '/dist/',
+  //    path: path.join(__dirname, './../wwwroot/dist/'),
+  //    filename: 'main.build.js'
+  // },
     module: {
       rules: [
         {
