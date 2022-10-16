@@ -221,6 +221,8 @@ Remove-Item -Recurse -Force ".\wwwroot\lib"
 
 Set-Location ClientApp
 
+npm install
+
 npm run wpbuild
 
 Set-Location ..
