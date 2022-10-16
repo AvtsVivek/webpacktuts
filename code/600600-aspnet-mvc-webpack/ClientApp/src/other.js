@@ -1,6 +1,6 @@
 
 function func() {
-     //alert('loaded!!! Just for testing');
+     alert('loaded!!! Just for testing');
 }
 
 module.exports = func;

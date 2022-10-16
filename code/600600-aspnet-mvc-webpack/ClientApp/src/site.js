@@ -12,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 // ... none at the moment
 
 // Custom CSS imports
-import './somecss.css';
+import './sitecss.css';
 
 console.log('The \'site\' bundle has been loaded!');
 

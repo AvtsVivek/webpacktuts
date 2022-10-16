@@ -56,7 +56,7 @@ dotnet new gitignore
 
 New-Item -Path '.\ClientApp\src' -ItemType Directory
 
-New-Item -Path ".\ClientApp\src\app.js"
+New-Item -Path ".\ClientApp\src\loadjquery.js"
 
 New-Item -Path ".\ClientApp\src\main.js"
 
@@ -64,32 +64,31 @@ New-Item -Path ".\ClientApp\src\other.js"
 
 New-Item -Path ".\ClientApp\src\site.js"
 
-New-Item -Path ".\ClientApp\src\somecss.css"
+New-Item -Path ".\ClientApp\src\sitecss.css"
 
-$AppFileContent = @"
+$LoadJqueryContent = @"
 
 // import 'bootstrap';
 // import './scss/app.scss';
 // import { $, jQuery } from 'jquery';
+
+global.jQuery = global.$ = require('jquery');
 
 "@
 
 $MainFileContent = @"
 var other = require('./other');
 
-global.jQuery = global.$ = require('jquery');
-
 jQuery('#jqueryTestDiv').append('<p>Hello World! If you are seeing this, then jquery is loaded....</p>');
 
-alert('Here we go');
-
 other();
+
 "@
 
 $OtherFileContent = @"
 
 function func() {
-     //alert('loaded!!! Just for testing');
+     alert('loaded!!! Just for testing');
 }
 
 module.exports = func;
@@ -110,13 +109,13 @@ import 'bootstrap/dist/css/bootstrap.css';
 // ... none at the moment
 
 // Custom CSS imports
-import './somecss.css';
+import './sitecss.css';
 
 console.log('The \'site\' bundle has been loaded!');
 
 "@
 
-Add-Content -Path ".\ClientApp\src\app.js" -Value $AppFileContent
+Add-Content -Path ".\ClientApp\src\loadjquery.js" -Value $LoadJqueryContent
 
 Add-Content -Path ".\ClientApp\src\main.js" -Value $MainFileContent
 
@@ -126,15 +125,15 @@ Add-Content -Path ".\ClientApp\src\site.js" -Value $SiteJsFileContent
 
 $SomeSiteCssFileContent = Get-Content -Path ".\wwwroot\css\site.css" 
 
-Add-Content -Path ".\ClientApp\src\somecss.css" -Value $SomeSiteCssFileContent
+Add-Content -Path ".\ClientApp\src\sitecss.css" -Value $SomeSiteCssFileContent
 
 $NewLineString = [Environment]::NewLine
 
-Add-Content -Path ".\ClientApp\src\somecss.css" -Value $NewLineString
+Add-Content -Path ".\ClientApp\src\sitecss.css" -Value $NewLineString
 
 $SomeSiteCssFileContent = Get-Content -Path ".\Views\Shared\_Layout.cshtml.css" 
 
-Add-Content -Path ".\ClientApp\src\somecss.css" -Value $SomeSiteCssFileContent
+Add-Content -Path ".\ClientApp\src\sitecss.css" -Value $SomeSiteCssFileContent
 
 Set-Location ClientApp
 
@@ -171,11 +170,15 @@ var $ = require('jquery');
 let production = process.env.NODE_ENV === 'production';
 
 let config = {
-  entry: ['./src/main', './src/app',  './src/site', './node_modules/jquery', './node_modules/jquery-validation', './node_modules/jquery-validation-unobtrusive', './node_modules/bootstrap'],
+  entry: {
+    main: './src/main',
+    loadjquery: './src/loadjquery',
+    site: './src/site'
+  },
   output: {
-     publicPath: '/dist/',
-     path: path.join(__dirname, './../wwwroot/dist/'),
-     filename: 'main.build.js'
+    publicPath: '/dist/',
+    path: path.join(__dirname, './../wwwroot/dist/'),
+    filename: '[name].build.js',
   },
     module: {
       rules: [
@@ -201,6 +204,8 @@ if (production) {
 
 Add-Content -Path ".\webpack.config.js" -Value $WebPackConfigFileContent
 
+Set-Location ClientApp
+
 npm run wpbuild
 
 Set-Location ..
@@ -213,15 +218,20 @@ Remove-Item ".\Views\Shared\_Layout.cshtml.css"
 
 Remove-Item -Recurse -Force ".\wwwroot\lib"
 
-# Update the _Layout.cshtml file with the following.
+# Update the _Layout.cshtml file with the following in the head.
 
-<script src="~/dist/main.build.js" defer></script>
+    <script src="~/dist/loadjquery.build.js" ></script>
+    <script src="~/dist/main.build.js" defer ></script>
+    <script src="~/dist/site.build.js"  ></script>
 
 # Add Jquery test page and also its link in the layout page. 
 
-dotnet build $ProjectFileNameCurrentPath
+Set-Location ClientApp
+
+npm run wpbuild
+
+Set-Location ..
 
 dotnet run --project $ProjectFileNameCurrentPath
 
-############################################################################################################
-
+############################################################################################

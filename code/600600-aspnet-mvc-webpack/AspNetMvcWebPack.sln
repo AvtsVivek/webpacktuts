@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcWebPack", "AspNetMvcWebPack.csproj", "{88A20B97-03B5-4C32-A6B8-85B8EAD905CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcWebPack", "AspNetMvcWebPack.csproj", "{2A541963-657E-42B7-A16E-6E08AEB02DD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +14,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{88A20B97-03B5-4C32-A6B8-85B8EAD905CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{88A20B97-03B5-4C32-A6B8-85B8EAD905CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{88A20B97-03B5-4C32-A6B8-85B8EAD905CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{88A20B97-03B5-4C32-A6B8-85B8EAD905CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A541963-657E-42B7-A16E-6E08AEB02DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A541963-657E-42B7-A16E-6E08AEB02DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A541963-657E-42B7-A16E-6E08AEB02DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A541963-657E-42B7-A16E-6E08AEB02DD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
